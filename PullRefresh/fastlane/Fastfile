@@ -16,22 +16,9 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
-   gym(scheme: "AppScheme”,
-    #output_name 指打包完成后, 输出ipa文件的名字
-	output_name: "PullFresh_Debug”,
-    #export_method 打包版本选择
-    #分别是app-store、ad-hoc、development、enterprise
-	export_method: "development”,
-    	export_options: {
-      	  provisioningProfiles: { 
-          #左侧表示你的项目的bundle id
-          #右侧表示你的项目在选择export_method后,对应的描述文件名字
-          "com.man.PullRefresh" => "ProfilesName"
-        }
-       }) 
-
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+  
+  capture_screenshots(scheme: "PullRefreshUITests")
   end
 end
